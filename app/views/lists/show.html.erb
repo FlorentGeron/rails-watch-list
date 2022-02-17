@@ -1,0 +1,23 @@
+<h1>Bookmarks de la Liste <%= @list.name %></h1>
+<p></p>
+
+<%= link_to "Add a bookmark", new_list_bookmark_path(@list) %>
+<%= link_to "Back to Lists", lists_path %>
+
+<div class="container">
+  <div class="row">
+    <% @list.bookmarks.each do |book| %>
+      <div class= "card">
+        <%= book.movie.title %>
+        <%= image_tag book.movie.poster_url, width:"200", alt: "moche"%>
+        <%= book.movie.overview %>
+        <%= book.movie.rating %>
+        <%= book.comment %>
+        <%= link_to "Delete",
+            bookmark_destroy_path(book),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+      </div>
+    <% end %>
+  </div>
+</div>
