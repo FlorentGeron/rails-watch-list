@@ -1,5 +1,6 @@
-<h1>Bookmarks#new</h1>
-<p>Find me in app/views/bookmarks/new.html.erb</p>
+<div class="navbar">
+  <h1>Bookmarks#new</h1>
+</div>
 
 <%= simple_form_for [@list, @bookmark] do |l|%>
 <%= l.input :comment %>
@@ -7,4 +8,6 @@
 <%= l.submit%>
 <% end%>
 
-<%= link_to "Back to List", list_path(@list) %>
+<%= link_to list_path(@list) do%>
+<div class="btn btn-flat">Back to List</div>
+<%end%>

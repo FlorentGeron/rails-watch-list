@@ -1,9 +1,12 @@
-<h1>Lists#new</h1>
-<p>Find me in app/views/lists/new.html.erb</p>
+<div class="navbar">
+<h1>New List</h1>
+</div>
 
 <%= simple_form_for (@list) do |l|%>
 <%= l.input :name %>
 <%= l.submit%>
 
-<%= link_to "Back to Lists", lists_path %>
+<%= link_to root_path do%>
+<div class="btn btn-flat">Back to List</div>
+<%end%>
 <% end%>

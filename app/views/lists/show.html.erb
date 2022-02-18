@@ -1,22 +1,29 @@
-<h1>Bookmarks de la Liste <%= @list.name %></h1>
-<p></p>
+<div class="navbar">
+  <h1>Bookmarks de la Liste <%= @list.name %></h1>
+</div>
 
-<%= link_to "Add a bookmark", new_list_bookmark_path(@list) %>
-<%= link_to "Back to Lists", lists_path %>
+<%= link_to new_list_bookmark_path(@list) do%>
+<div class="btn btn-flat">Add a Bookmark</div>
+<%end%>
+<%= link_to root_path do%>
+<div class="btn btn-flat">Back to List</div>
+<%end%>
 
 <div class="container">
   <div class="row">
     <% @list.bookmarks.each do |book| %>
-      <div class= "card">
-        <%= book.movie.title %>
+      <div class= "card-product">
         <%= image_tag book.movie.poster_url, width:"200", alt: "moche"%>
-        <%= book.movie.overview %>
-        <%= book.movie.rating %>
-        <%= book.comment %>
-        <%= link_to "Delete",
-            bookmark_destroy_path(book),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
+        <div class="card-product-info">
+          <h2><%= book.movie.title %></h2>
+          <p><%= book.movie.overview %></p>
+          <p><%= book.movie.rating %></p>
+          <p><%= book.comment %></p>
+          <p><%= link_to "Delete",
+             bookmark_destroy_path(book),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %></p>
+        </div>
       </div>
     <% end %>
   </div>
