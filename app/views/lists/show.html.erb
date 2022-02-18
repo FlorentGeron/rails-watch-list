@@ -1,3 +1,4 @@
+
 <div class="navbar">
   <h1>Bookmarks de la Liste <%= @list.name %></h1>
 </div>
@@ -19,10 +20,9 @@
           <p><%= book.movie.overview %></p>
           <p><%= book.movie.rating %></p>
           <p><%= book.comment %></p>
-          <p><%= link_to "Delete",
-             bookmark_destroy_path(book),
-              method: :delete,
-              data: { confirm: "Are you sure?" } %></p>
+          <%= link_to "remove", bookmark_path(book), method: :delete, data: { confirm: "Are you sure?" } %>
+
+              <%# <i class="fa-regular fa-trash"></i> %>
         </div>
       </div>
     <% end %>

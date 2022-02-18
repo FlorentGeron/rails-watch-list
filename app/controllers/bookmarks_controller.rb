@@ -20,6 +20,7 @@ class BookmarksController < ApplicationController
     @list = @bookmark.list
     @bookmark.destroy
     redirect_to list_path(@list)
+    #redirect_to root_path
   end
 
   private
