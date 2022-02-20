@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('chair-movie-watch-theater.png') %>)">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('chairs.jpeg') %>)">
   <div class="container">
     <h1>MOVIEEEEEEEEZZZZZZ</h1>
     <p>What will you watch in the coming months ?</p>
@@ -8,10 +8,18 @@
   </div>
 </div>
 
+
 <div class="container">
-<ul>
-<% @lists.each do  |list|%>
-<li><%= list.name %> <%= link_to "Show la liste", list_path(list) %></li>
-<% end %>
-</ul>
+  <div class="row">
+    <% @lists.each do |list| %>
+    <%= link_to list_path(list) do%>
+      <div class= "card-product">
+      <%= cl_image_tag list.photo.key %>
+        <div class="card-product-info">
+          <h2><%= list.name %></h2>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>

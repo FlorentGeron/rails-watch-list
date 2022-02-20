@@ -1,5 +1,5 @@
 
-<div class="navbar">
+<div class="navbar-lewagon"style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @list.photo.key, height: 300, crop: :fill %>')">
   <h1>Bookmarks de la Liste <%= @list.name %></h1>
 </div>
 
@@ -20,9 +20,9 @@
           <p><%= book.movie.overview %></p>
           <p><%= book.movie.rating %></p>
           <p><%= book.comment %></p>
-          <%= link_to "remove", bookmark_path(book), method: :delete, data: { confirm: "Are you sure?" } %>
-
-              <%# <i class="fa-regular fa-trash"></i> %>
+          <%= link_to bookmark_path(book), method: :delete, data: { confirm: "Are you sure?" } do%>
+          <i class="fa-regular fa-trash-can"></i>
+          <%end%>
         </div>
       </div>
     <% end %>

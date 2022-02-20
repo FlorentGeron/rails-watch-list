@@ -4,6 +4,7 @@
 
 <%= simple_form_for (@list) do |l|%>
 <%= l.input :name %>
+<%= l.input :photo, as: :file %>
 <%= l.submit%>
 
 <%= link_to root_path do%>
